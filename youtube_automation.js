@@ -18,8 +18,11 @@ async function automateYoutubePublishing() {
 
 
       // Continue with the URL after login
+      await driver.sleep(1000);
       await driver.get('https://studio.youtube.com/channel/UCgw0bMwNVJJTnf7yr5hLLOg/videos/short?filter=%5B%7B%22name%22%3A%22VISIBILITY%22%2C%22value%22%3A%5B%22DRAFT%22%5D%7D%5D&sort=%7B%22columnType%22%3A%22date%22%2C%22sortOrder%22%3A%22DESCENDING%22%7D');
-
+      await driver.sleep(1000);
+      await driver.get('https://studio.youtube.com/channel/UCgw0bMwNVJJTnf7yr5hLLOg/videos/short?filter=%5B%7B%22name%22%3A%22VISIBILITY%22%2C%22value%22%3A%5B%22DRAFT%22%5D%7D%5D&sort=%7B%22columnType%22%3A%22date%22%2C%22sortOrder%22%3A%22DESCENDING%22%7D');
+      
       try {
         // Find the first "EDIT DRAFT" button and click 
         const firstEditDraftButton = await driver.wait(until.elementLocated(By.className('edit-draft-button')), 10000); 
@@ -39,7 +42,7 @@ async function automateYoutubePublishing() {
         await publishButton.click();
 
         // Wait for 3 seconds
-        await driver.sleep(1000);
+        await driver.sleep(5000);
 
         
 
@@ -51,7 +54,7 @@ async function automateYoutubePublishing() {
     } 
 
   } finally {
-    await driver.quit();
+    
   }
 }
 
